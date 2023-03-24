@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   }
   submitCity(city: HTMLInputElement) {
     if (city.value == '') {
-      alert('por favor Ingrese una ciudad');
+      alert('Por favor ingrese una ciudad...');
       return false;
     } else {
       this.getWeather(city.value);
