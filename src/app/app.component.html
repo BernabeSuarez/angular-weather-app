@@ -3,8 +3,8 @@
   <div class="inputContainer">
     <h1>Angular Weather App</h1>
     <form (submit)="submitCity(city)">
-      <input type="text" placeholder="Ciudad" #city>
-      <button>Buscar</button>
+      <input class="input" type="text" placeholder="Ingrese una Ciudad" #city>
+      <button class="btn">Buscar</button>
     </form>
   </div>
   <div class="data" [ngClass]="{'day': isDay, 'night': !isDay}">
