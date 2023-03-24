@@ -9,7 +9,7 @@ import { Weather } from './models/weather.models';
 })
 export class AppComponent implements OnInit {
   weather: Weather;
-  defaultCity: string = 'Buenos Aires';
+  defaultCity: string = 'buenos aires';
   isDay: number = 0;
   day: string = '../assets/day-bg.jpg';
   night: string = '../assets/night-bg.jpg';
@@ -32,10 +32,15 @@ export class AppComponent implements OnInit {
     console.log(this.weather);
   }
   submitCity(city: HTMLInputElement) {
-    this.getWeather(city.value);
-    console.log(city.value);
-    city.value = '';
-    city.focus();
-    return false;
+    if (city.value == '') {
+      alert('por favor Ingrese una ciudad');
+      return false;
+    } else {
+      this.getWeather(city.value);
+      console.log(city.value);
+      city.value = '';
+      city.focus();
+      return false;
+    }
   }
 }
