@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   isDay: number = 0;
   day: string = '../assets/day-bg.jpg';
   night: string = '../assets/night-bg.jpg';
+  loader: boolean = true;
 
   constructor(private data: DataService) {}
 
@@ -21,9 +22,11 @@ export class AppComponent implements OnInit {
   }
 
   getWeather(cityname: string) {
+    this.loader = true;
     this.data.getPosts(cityname).subscribe((data) => {
       this.weather = data;
       this.isDay = this.weather.current.is_day;
+      this.loader = false;
       console.log(data);
     });
     console.log(this.weather);

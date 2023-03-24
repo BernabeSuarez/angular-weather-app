@@ -7,12 +7,23 @@
       <button class="btn">Buscar</button>
     </form>
   </div>
-  <div class="data" [ngClass]="{'day': isDay, 'night': !isDay}">
-    <h2>{{weather.location.name}}</h2>
-    <h5>{{weather.location.region}}</h5>
-    <h5>{{weather.location.country}}</h5>
-    <p>Temperatura: {{weather.current.temp_c}}°</p>
-    <h5>{{weather.current.condition.text}}</h5>
-    <img src={{weather.current.condition.icon}} alt="Icon">
+  <div *ngIf="loader" class="loaderContainer">
+    <img src="../assets/svg/rings.svg" alt="loader">
+    <h5>loading...</h5>
+  </div>
+  <div *ngIf="!loader" class="data" [ngClass]="{'day': isDay, 'night': !isDay}">
+    <div class="place">
+      <h5>{{weather.location.name}}</h5>
+      <h6>{{weather.location.region}},{{weather.location.country}}</h6>
+    </div>
+    <div class="iconContainer">
+      <div class="temp">
+        <h2>{{weather.current.temp_c}}°</h2>
+        <div class="icon">
+          <h3>{{weather.current.condition.text}}</h3>
+          <img src={{weather.current.condition.icon}} alt="Icon">
+        </div>
+      </div>
+    </div>
   </div>
 </section>
