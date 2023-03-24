@@ -1,17 +1,18 @@
 <router-outlet></router-outlet>
-
-<div class="inputContainer">
-  <h1>Angular Weather App</h1>
-  <form (submit)="submitCity(city)">
-    <input type="text" placeholder="Ciudad" #city>
-    <button>Buscar</button>
-  </form>
-</div>
-<div class="data">
-  <h2>{{weather.location.name}}</h2>
-  <h5>{{weather.location.region}}</h5>
-  <h5>{{weather.location.country}}</h5>
-  <p>Temperatura: {{weather.current.temp_c}}°</p>
-  <h5>{{weather.current.condition.text}}</h5>
-  <img src={{weather.current.condition.icon}} alt="Icon">
-</div>
+<section class="container">
+  <div class="inputContainer">
+    <h1>Angular Weather App</h1>
+    <form (submit)="submitCity(city)">
+      <input type="text" placeholder="Ciudad" #city>
+      <button>Buscar</button>
+    </form>
+  </div>
+  <div class="data" [ngClass]="{'day': isDay, 'night': !isDay}">
+    <h2>{{weather.location.name}}</h2>
+    <h5>{{weather.location.region}}</h5>
+    <h5>{{weather.location.country}}</h5>
+    <p>Temperatura: {{weather.current.temp_c}}°</p>
+    <h5>{{weather.current.condition.text}}</h5>
+    <img src={{weather.current.condition.icon}} alt="Icon">
+  </div>
+</section>

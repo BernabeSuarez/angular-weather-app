@@ -10,6 +10,10 @@ import { Weather } from './models/weather.models';
 export class AppComponent implements OnInit {
   weather: Weather;
   defaultCity: string = 'Buenos Aires';
+  isDay: number = 0;
+  day: string = '../assets/day-bg.jpg';
+  night: string = '../assets/night-bg.jpg';
+
   constructor(private data: DataService) {}
 
   ngOnInit() {
@@ -17,7 +21,11 @@ export class AppComponent implements OnInit {
   }
 
   getWeather(cityname: string) {
-    this.data.getPosts(cityname).subscribe((data) => (this.weather = data));
+    this.data.getPosts(cityname).subscribe((data) => {
+      this.weather = data;
+      this.isDay = this.weather.current.is_day;
+      console.log(data);
+    });
     console.log(this.weather);
   }
   submitCity(city: HTMLInputElement) {
