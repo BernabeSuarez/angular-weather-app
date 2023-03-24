@@ -9,10 +9,12 @@ import { Weather } from './models/weather.models';
 })
 export class AppComponent implements OnInit {
   weather: Weather;
-
+  defaultCity: string = 'Buenos Aires';
   constructor(private data: DataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getWeather(this.defaultCity);
+  }
 
   getWeather(cityname: string) {
     this.data.getPosts(cityname).subscribe((data) => (this.weather = data));
