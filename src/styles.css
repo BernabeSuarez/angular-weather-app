@@ -8,7 +8,18 @@ body {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     ),
-    url("https://images.pexels.com/photos/14025082/pexels-photo-14025082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    url("./assets/ng-bg.jpg");
   background-size: cover;
   color: #fafafa;
+}
+
+@media (max-width: 425px) {
+  body {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url("./assets/ng-bg-mobile.jpg");
+  }
 }
